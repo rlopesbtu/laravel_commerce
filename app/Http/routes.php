@@ -11,6 +11,16 @@
 |
 */
 
+Route::get('/','WelcomeController@index');
+Route::get('exemplo','WelcomeController@exemplo');
+Route::get('home','HomeController@index');
+
+
+/*Route::controllers([
+   'auth' => 'Auth\AuthController',
+   'password' => 'AuthPasswordController',
+]);*/
+
 Route::get('/', function () {
     return view('welcome');
 });
