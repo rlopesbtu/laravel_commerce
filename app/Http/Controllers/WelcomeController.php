@@ -19,7 +19,7 @@ class WelcomeController extends Controller {
         $this->product = $product;
     }
 
-    public function index()
+   public function index()
     {
         return view('welcome');
     }
