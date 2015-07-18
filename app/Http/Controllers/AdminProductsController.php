@@ -19,7 +19,7 @@ class AdminProductsController extends Controller {
     public function index()
     {
         $product = $this->product->all();
-        return view('admin/products', compact('product'));
+        return view('products', compact('product'));
 
     }
 

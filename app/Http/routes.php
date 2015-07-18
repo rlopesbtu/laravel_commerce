@@ -10,12 +10,27 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::group(['prefix'=>'admin'],function(){
+
+    Route::get('product/{product}',['as'=>'produtos',function(\CodeCommerce\Product $product){
+        return $product->name;
+    }]);
+});
+
+//echo route('produtos');die;
+
+Route::group(['prefix'=>'admin'],function(){
+
+    Route::get('category/{category}',['as'=>'categorias',function(\CodeCommerce\Category $category){
+      return $category->name;
+    }]);
+});
 
 Route::get('/','WelcomeController@index');
-/*Route::get('exemplo','WelcomeController@exemplo');*/
-Route::get('admin/categories','AdminCategoriesController@index');
+Route::get('exemplo','WelcomeController@exemplo');
+/*Route::get('admin/categories','AdminCategoriesController@index');
 Route::get('admin/products','AdminProductsController@index');
-Route::get('home','HomeController@index');
+Route::get('home','HomeController@index');*/
 
 
 /*Route::controllers([
