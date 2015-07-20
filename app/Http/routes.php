@@ -12,24 +12,31 @@
 */
 Route::group(['prefix'=>'admin'],function(){
 
-    Route::get('product/{product}',['as'=>'produtos',function(\CodeCommerce\Product $product){
-        return $product->name;
-    }]);
-});
+    Route::group(['prefix'=>'categories'],function(){
+       Route::get('/','CategoriesController@index');
+    });
 
+    Route::group(['prefix'=>'products'],function(){
+        Route::get('/','ProductsController@index');
+    });
+
+});
 //echo route('produtos');die;
 
-Route::group(['prefix'=>'admin'],function(){
 
-    Route::get('category/{category}',['as'=>'categorias',function(\CodeCommerce\Category $category){
-      return $category->name;
-    }]);
-});
 
+
+
+
+/*
+Route::get('/categories','CategoriesController@index');
+Route::get('categories/create','CategoriesController@create');
 Route::get('/','WelcomeController@index');
 Route::get('exemplo','WelcomeController@exemplo');
-/*Route::get('admin/categories','AdminCategoriesController@index');
-Route::get('admin/products','AdminProductsController@index');
+*/
+
+/*Route::get('admin/categories','CategoriesController@index');
+Route::get('admin/products','ProductsController@index');
 Route::get('home','HomeController@index');*/
 
 
